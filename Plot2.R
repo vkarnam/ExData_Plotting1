@@ -13,14 +13,12 @@ desired.data <- file[(file$Date == "1/2/2007" | file$Date == "2/2/2007"),]
 desired.data[1:10000, 1:3]
 
 
-# Plot needs dats from Global_active_power vs days. To get the days
+# Plot needs data from Global_active_power and day. To get the days
 
 class(desired.data$Global_active_power)
 # It is "character", So convert it to "numeric"
 globalActivePower <- as.numeric(desired.data$Global_active_power)
 class(globalActivePower)
-
-
 #Hint by  Coursera#
 #You may find it useful to convert the Date and Time variables to Date/Time classes in R using 
 # the strptime()  and as.Date() functions.
@@ -31,9 +29,8 @@ desired.data_1 <- strptime(x = x,format = "%d/%m/%Y %H:%M:%S")
 
 
 # Plot Global_active_power vs desired days.
+png("C:/Vasu/R_Coursera/Exploratory_data_analysis/Week1/Assignment_1/ExData_Plotting1/plot2.png", width=480, height=480)
 plot(desired.data_1, globalActivePower, type="l", xlab = "", ylab="Global Active Power (kilowatts)")
-dev.copy(png, file="plot2.png", width=480, height=480)
 
-
-# Close the PNG device
+# Close the graphic device
 dev.off()

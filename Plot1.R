@@ -12,18 +12,15 @@ desired.data <- file[(file$Date == "1/2/2007" | file$Date == "2/2/2007"),]
 desired.data[1:10000, 1:3]
 
 
-
-
-# Plot needs dats from Global_active_power vs Date/Time
+# Plot needs data from Global_active_power and Date/Time
 
 class(desired.data$Global_active_power)
 # It is "character", So convert it to "numeric"
 globalActivePower <- as.numeric(desired.data$Global_active_power)
-
 file$Date <- as.Date(file$Date, format="%d/%m/%Y")
 
 
-#png("plot1.png", width=480, height=480)
+png("C:/Vasu/R_Coursera/Exploratory_data_analysis/Week1/Assignment_1/ExData_Plotting1/plot1.png", width=480, height=480)
 hist(globalActivePower, col="red", main="Global Active Power", xlab = "global Active Power", ylab = "Frequency")
-dev.copy(png, file="plot1.png", width=480, height=480)
+# Close the graphic device
 dev.off()
