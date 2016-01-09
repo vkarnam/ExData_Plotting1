@@ -9,7 +9,7 @@ colnames(file)
 
 # Date is in format dd/mm/yyyy. Select the data needed. 
 desired.data <- file[(file$Date == "1/2/2007" | file$Date == "2/2/2007"),]
-desired.data[1:10000, 1:3]
+
 
 
 # Plot needs data from Global_active_power and Date/Time
